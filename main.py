@@ -21,6 +21,9 @@ def main() -> None:
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(JOKE)
+    # Read-back verification: the file must hold exactly the joke.
+    with open("/output/entry.txt", "r", encoding="utf-8") as f:
+        assert f.read() == JOKE, "entry.txt does not match JOKE"
 
 
 if __name__ == "__main__":
